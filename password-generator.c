@@ -90,38 +90,6 @@ bool has_ambiguous_characters(const char password[]) {
     return false;
 }
 
-float evaluate_password(const char password[]) {
-    int len = strlen(password);
-    int character_count = 0;
-    int uppercase_count = 0;
-    int lowercase_count = 0;
-    int digit_count = 0;
-    int symbol_count = 0;
-
-    for (int i = 0; i < len; i++) {
-        char c = password[i];
-        if (c >= 'a' && c <= 'z') {
-            lowercase_count++;
-        }
-        else if (c >= 'A' && c <= 'Z') {
-            uppercase_count++;
-        }
-        else if (c >= '0' && c <= '9') {
-            digit_count++;
-        }
-        else {
-            symbol_count++;
-        }
-        character_count++;
-    }
-
-    float entropy = log2(pow(26, lowercase_count) * pow(26, uppercase_count) * pow(10, digit_count) * pow(17, symbol_count));
-
-    float percent = (entropy / (log2(pow(26, character_count)))) * 100;
-
-    return percent;
-}
-
 int main() {
     srand(time(NULL));
     int strength, length;
@@ -157,9 +125,6 @@ int main() {
         if (has_ambiguous_characters(password)) {
             printf("\nNote: The password contains ambiguous characters.\n");
         }
-
-        float percent = evaluate_password(password);
-        printf("\nPassword strength: %.1f%%\n", percent);
 
         printf("\n=====================================\n");
         printf("            TRY AGAIN?               \n");
