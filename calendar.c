@@ -46,7 +46,7 @@ void printCalendar(int year, int month, int day)
     if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
         daysInMonth[1] = 29;
 
-    int dayOfWeek = getDayOfWeek(year, month, 1);
+    int dayOfWeek = (getDayOfWeek(year, month, 1) + 8) % 7;
 
     printf("\n============================\n");
     printf("%s%15s %d%s\n", YELLOW, months[month - 1], year, RESET_COLOR);
