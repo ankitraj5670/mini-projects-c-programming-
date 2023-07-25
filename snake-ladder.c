@@ -192,9 +192,7 @@ bool check_win(int position, int player)
     {
         printf("player-%d won!\n", player);
         sleep(3);
-        printf("\npress enter to play again...\n");
-        getchar();
-        system("cls");
+        printf("\npress enter to play again  or 0 to exit...\n");
         return true;
     }
     return false;
@@ -207,7 +205,8 @@ bool move_validity(int *position, int dice_roll)
     {
         printf("Invalid move!\n");
         sleep(2);
-        printf("\npress enter to continue or 0 to exit...\n");
+        printf("\npress enter to continue...\n");
+        system("cls");
         return false;
     }
     return true;
