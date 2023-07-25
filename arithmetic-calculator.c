@@ -2,12 +2,9 @@
 #include <stdlib.h>
 #include <math.h>
 
-// Function to clear the screen
 void clearScreen() {
-    // Clear screen command for Windows
     #ifdef _WIN32
         system("cls");
-    // Clear screen command for Unix-like systems (Linux, macOS)
     #else
         system("clear");
     #endif
@@ -61,10 +58,12 @@ void funct1() {
         }
         num1 = result;
         printf("\nPress enter to continue...");
-        getchar(); // Consume the newline character
-        getchar(); // Wait for user input
+        getchar();
+        getchar();
         clearScreen();
         printf("\n=== Calculation ===\n");
+        printf("Result: %.3f\n", result);
+        printf("NOTE: Enter 0 to exit...\n");
         printf("Enter expression (+, -, *, /, 0): ");
         scanf(" %c", &expression);
         if (expression == 48) {
@@ -122,8 +121,8 @@ void funct2() {
                 break;
         }
         printf("\nPress enter to continue...");
-        getchar(); // Consume the newline character
-        getchar(); // Wait for user input
+        getchar();
+        getchar();
         clearScreen();
     }
 }
@@ -138,8 +137,8 @@ void funct3() {
         scanf("%f", &power);
         printf("Result: %.3f\n", pow(num, power));
         printf("\nPress enter to continue...");
-        getchar(); // Consume the newline character
-        getchar(); // Wait for user input
+        getchar();
+        getchar();
         clearScreen();
     }
 }
@@ -166,8 +165,8 @@ void funct4() {
             printf("Error: Invalid option.\n");
         }
         printf("\nPress enter to continue...");
-        getchar(); // Consume the newline character
-        getchar(); // Wait for user input
+        getchar();
+        getchar();
         clearScreen();
     }
 }
@@ -199,8 +198,8 @@ int main() {
                 break;
         }
         printf("\nReturning to the main menu...");
-        getchar(); // Consume the newline character
-        getchar(); // Wait for user input
+        getchar();
+        getchar();
         clearScreen();
     }
     return 0;
